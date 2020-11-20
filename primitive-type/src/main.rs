@@ -113,6 +113,44 @@ fn main() {
         println!("{} / {} = {}", a, 3, a / 3);
 
         let a_cubed = i32::pow(a, 3);
-        println!("a pow 3 = {}", a_cubed);
+        println!("a_cubed = {}", a_cubed);
+
+        let b = 2.5;
+        let b_cubed = f64::powi(b, 3);
+        let b_to_pi = f64::powf(b, std::f64::consts::PI);
+        println!("b_cubed = {}, b_to_pi = {}", b_cubed, b_to_pi);
+
+        // bitwise
+        // | OR & AND ^ XOR ! NOR
+        // 01 OR 10 = 11 == 3_10
+        let c = 1 | 2;
+        println!("1|2 = {}", c);
+        // 01 AND 10 = 00 == 0_10
+        let d = 1 & 2;
+        println!("1&2 = {}", d);
+        // 01 XOR 10 = 11 == 3_10
+        let e = 1 ^ 2;
+        println!("1^2 = {}", e);
+
+        let two_to_10 = 1 << 10;
+        println!("2^10 = {}", two_to_10);
+
+        // logical
+        let _pi_less_4 = std::f64::consts::PI < 4.0; // true
+        let x = 5;
+        let _x_is_5 = x == 5; // true
+    }
+
+    // scope and shadowing
+    {
+        let a = 123;
+        {
+            let a = 777;
+            let b = 456;
+            println!("inside a = {}", a);
+            println!("inside b = {}", b);
+        }
+        println!("outside a = {}", a);
+        // println!("outside b = {}", b); // not found in this scope
     }
 }
