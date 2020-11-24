@@ -232,11 +232,11 @@ fn main() {
             }
         }
 
-        let p1 = origin();
-        let p2 = Box::new(origin());
+        let p1 = origin(); // alloc memory on stack
+        let p2 = Box::new(origin()); // alloc memory on heap
         println!("p1 {} bytes", mem::size_of_val(&p1));
         println!("p2 {} bytes", mem::size_of_val(&p2));
-        let p3 = *p2;
+        let p3 = *p2; // take value on heap
         println!("p3 {} bytes", mem::size_of_val(&p3));
     }
 }
