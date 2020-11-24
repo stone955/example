@@ -221,14 +221,14 @@ fn main() {
     // stack and heap
     {
         struct Point {
-            x: f64,
-            y: f64,
+            _x: f64,
+            _y: f64,
         }
 
         fn origin() -> Point {
             Point {
-                x: 0.0,
-                y: 0.0,
+                _x: 0.0,
+                _y: 0.0,
             }
         }
 
