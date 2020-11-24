@@ -11,17 +11,14 @@ struct Line {
 }
 
 fn main() {
-    // Point
+    // struct
     {
         let o = Point {
             _x: 0.0,
             _y: 0.0,
         };
         println!("Point o is at ({}, {})", o._x, o._y);
-    }
 
-    // Line
-    {
         let line = Line {
             _start: Point {
                 _x: 0.0,
