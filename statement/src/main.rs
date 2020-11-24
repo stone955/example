@@ -22,6 +22,25 @@ fn main() {
 
     // while and loop
     {
+        // while
+        let mut x = 1;
+
+        while x < 1000 {
+            x *= 2;
+            print!("x = {}; ", x);
+        }
+
+        // loop => while true
+        let mut y = 1;
+        loop {
+            y *= 2;
+            print!("y = {}; ", y);
+            if y > 1000 {
+                break;
+            }
+        }
+
+        // for loop
 
     }
 }
