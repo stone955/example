@@ -52,4 +52,18 @@ fn main() {
             println!("pos = {}, value= {}", pos, val);
         }
     }
+
+    // match statement
+    {
+        let province_code = 99;
+        let province = match province_code {
+            97 => "Heilongjiang",
+            91 => "Liaoning",
+            76 => "Henan",
+            89 => "Xinjiang",
+            10..=99 => "Others",
+            _ => "Unknown"
+        };
+        println!("province code {} is {}", province_code, province);
+    }
 }
