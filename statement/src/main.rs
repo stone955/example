@@ -27,20 +27,29 @@ fn main() {
 
         while x < 1000 {
             x *= 2;
-            print!("x = {}; ", x);
+            println!("x = {}", x);
         }
 
         // loop => while true
         let mut y = 1;
         loop {
             y *= 2;
-            print!("y = {}; ", y);
+            println!("y = {}", y);
             if y > 1000 {
                 break;
             }
         }
 
         // for loop
+        for z in 0..10 {
+            if z % 2 == 0 {
+                continue;
+            }
+            println!("z = {}", z);
+        }
 
+        for (pos, val) in (20..30).enumerate() {
+            println!("pos = {}, value= {}", pos, val);
+        }
     }
 }
