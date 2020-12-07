@@ -1,3 +1,5 @@
+use core::mem;
+
 #[derive(Debug)]
 struct Point {
     _x: f64,
@@ -93,6 +95,35 @@ fn main() {
             None => {
                 println!("{}/{} = #REF", x, y);
             }
+        }
+    }
+
+    // array
+    {
+        let mut a: [i32; 5] = [1, 2, 3, 4, 5];
+        println!("a has {} elements, first is {}", a.len(), a[0]);
+
+        // mut
+        a[0] = 6;
+        println!("a[0] = {}", a[0]);
+
+        // for... in
+        for i in 0..a.len() {
+            println!("a[{}] = {}", i, a[i]);
+        }
+
+        let b = [1; 10];
+        for i in 0..b.len() {
+            println!("b[{}] = {}", i, b[i]);
+        }
+        println!("b took up {} bytes", mem::size_of_val(&b)); // 40 bytes
+
+        let mtx: [[i32; 3]; 3] = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+        for i in 0..mtx.len() {
+            for j in 0..mtx[i].len() {
+                print!("{} ", mtx[i][j]);
+            }
+            println!();
         }
     }
 }
