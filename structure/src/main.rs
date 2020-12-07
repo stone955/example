@@ -24,27 +24,23 @@ enum Color {
     // tuple
     Rgb(u8, u8, u8),
     // struct
-    Cmy { cyan: u8, magenta: u8, yellow: u8, black: u8 },
+    Cmy {
+        cyan: u8,
+        magenta: u8,
+        yellow: u8,
+        black: u8,
+    },
 }
 
 fn main() {
     // struct
     {
-        let o = Point {
-            _x: 0.0,
-            _y: 0.0,
-        };
+        let o = Point { _x: 0.0, _y: 0.0 };
         println!("Point o is at ({}, {})", o._x, o._y);
 
         let line = Line {
-            _start: Point {
-                _x: 0.0,
-                _y: 0.0,
-            },
-            _end: Point {
-                _x: 3.0,
-                _y: 4.0,
-            },
+            _start: Point { _x: 0.0, _y: 0.0 },
+            _end: Point { _x: 3.0, _y: 4.0 },
         };
         println!("Line start {:?}, end {:?}", line._start, line._end);
     }
@@ -55,20 +51,48 @@ fn main() {
         let active = match light {
             Light::Red => "Stop",
             Light::Yellow => "Ready",
-            Light::Green => "Go"
+            Light::Green => "Go",
         };
         println!("The light is {:?}, {}!", light, active);
 
         // let rgb = Color::Rgb(0, 0, 0);
         // let rgb = Color::Cmy { cyan: 0, magenta: 0, yellow: 0, black: 255 };
-        let rgb = Color::Cmy { cyan: 0, magenta: 0, yellow: 0, black: 0 };
+        let rgb = Color::Cmy {
+            cyan: 0,
+            magenta: 0,
+            yellow: 0,
+            black: 0,
+        };
         match rgb {
             Color::Rgb(0, 0, 0)
-            | Color::Cmy { cyan: _, magenta: _, yellow: _, black: 255 } => {
+            | Color::Cmy {
+                cyan: _,
+                magenta: _,
+                yellow: _,
+                black: 255,
+            } => {
                 println!("Color is Black")
             }
             Color::Rgb(r, g, b) => println!("Color rgb is {}, {}, {}", r, g, b),
-            _ => println!("Color is what?")
+            _ => println!("Color is what?"),
         };
+    }
+
+    // option
+    {
+        // Option<T>
+        let x = 3.0;
+        let y = 2.0;
+
+        // Some(z) None
+        let result: Option<f64> = if y != 0.0 { Some(x / y) } else { None };
+        match result {
+            Some(z) => {
+                println!("{}/{} = {}", x, y, z);
+            }
+            None => {
+                println!("{}/{} = #REF", x, y);
+            }
+        }
     }
 }
