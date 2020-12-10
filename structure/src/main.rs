@@ -165,4 +165,28 @@ fn main() {
             println!("{}", x);
         }
     }
+
+    // slice
+    {
+        fn use_slice(ss: &[i32]) {
+            for x in ss {
+                println!("x = {}", x);
+            }
+        }
+
+        let ss = [10, 20, 30, 40, 50];
+        use_slice(&ss[1..3]);
+
+        fn use_mut_slice(ss: &mut [i32]) {
+            for i in 0..ss.len() {
+                ss[i] = ss[i] * 10;
+            }
+            for x in ss {
+                println!("mut x = {}", x);
+            }
+        }
+
+        let mut mss = [10, 20, 30, 40, 50];
+        use_mut_slice(&mut mss);
+    }
 }
