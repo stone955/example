@@ -226,4 +226,27 @@ fn main() {
         abc = abc.replace("ello", "goodbye");
         println!("abc = {}", abc);
     }
+
+    // tuple
+    {
+        fn sum_reduce_mul_div(x: f64, y: f64) -> (f64, f64, f64, f64) {
+            (x + y, x - y, x * y, x / y)
+        }
+
+        // return tuple
+        let x = 3.0;
+        let y = 5.0;
+        let ret = sum_reduce_mul_div(x, y);
+        println!("sum_reduce_mul_div = {:?}", ret);
+
+        // destructuring
+        let (a, b, _, _) = sum_reduce_mul_div(x, y);
+        println!("{0} + {1} = {2}, {0} - {1} = {3}", x, y, a, b);
+
+        let (_, _, c, d) = sum_reduce_mul_div(x, y);
+        println!("{0} * {1} = {2}, {0} / {1} = {3}", x, y, c, d);
+
+        let abc = ((a, b), (c, d));
+        println!("abc = {:?}", abc);
+    }
 }
