@@ -189,4 +189,41 @@ fn main() {
         let mut mss = [10, 20, 30, 40, 50];
         use_mut_slice(&mut mss);
     }
+
+    // string
+    {
+        // utf-8
+        let s = "hello rust!"; // &str = string slice
+                               // s = "hello rust rust"; // error
+                               // let h = s[0];
+                               // println!("h = {}", h); // error
+
+        for c in s.chars().rev() {
+            print!("{}", c); // !tsur olleh
+        }
+        println!();
+
+        if let Some(first_char) = s.chars().nth(0) {
+            println!("the first char is {}", first_char);
+        }
+
+        // heap string
+        let mut letters = String::new();
+        let mut a = 'a' as u8;
+        while a <= ('z' as u8) {
+            letters.push(a as char);
+            if a < 'z' as u8 {
+                letters.push_str(",");
+            }
+            a += 1;
+        }
+        println!("letters = {}", letters);
+
+        // &str <> String
+        let mut abc = String::from("hello rust!");
+        abc.remove(0);
+        abc.push_str("!!");
+        abc = abc.replace("ello", "goodbye");
+        println!("abc = {}", abc);
+    }
 }
