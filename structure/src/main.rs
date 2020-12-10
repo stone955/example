@@ -1,4 +1,4 @@
-use core::mem;
+use std::mem;
 
 #[derive(Debug)]
 struct Point {
@@ -124,6 +124,45 @@ fn main() {
                 print!("{} ", mtx[i][j]);
             }
             println!();
+        }
+    }
+
+    // vector
+    {
+        let mut v = Vec::new();
+        // push
+        v.push(1);
+        v.push(2);
+        v.push(3);
+        v.push(4);
+        v.push(5);
+        println!("v = {:?}", v);
+
+        println!("v[0] = {}", v[0]);
+
+        // not safe
+        // println!("v[6] = {}", v[6]); // panicked at 'index out of bounds: the len is 5 but the index is 6',
+
+        // safe using option
+        let idx = 4;
+        match v.get(idx) {
+            Some(x) => println!("v[{}] = {}", idx, x),
+            None => println!("error, no such element of index {}", idx),
+        }
+
+        // for... in...
+        for x in &v {
+            println!("{}", x);
+        }
+
+        // pop
+        match v.pop() {
+            Some(x) => println!("the last element is {}, v = {:?}", x, v),
+            None => println!("vector is empty"),
+        }
+
+        while let Some(x) = v.pop() {
+            println!("{}", x);
         }
     }
 }
