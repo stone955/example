@@ -1,3 +1,4 @@
+mod pm;
 use std::mem;
 
 #[derive(Debug)]
@@ -248,5 +249,10 @@ fn main() {
 
         let abc = ((a, b), (c, d));
         println!("abc = {:?}", abc);
+    }
+
+    // pattern matching
+    {
+        pm::pattern_matching();
     }
 }
