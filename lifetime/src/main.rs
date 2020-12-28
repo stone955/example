@@ -37,4 +37,17 @@ fn main() {
         }
         println!("a = {}", a);
     }
+
+    // dangling reference
+    {
+        /*
+        let dangle = || -> &String {
+            let s = String::from("hello");
+            &s // return dangling reference
+        }; // s drop here
+
+        let s = dangle();
+        println!("s = {}", s); // returns a reference to data owned by the current function
+         */
+    }
 }
